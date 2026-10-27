@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>USDT Rewards — Instant Tron Receipt</title>
+<meta name="description" content="On-chain USDT receipt, no email required."/>
+<style>
+:root{--bg:#0b1020;--fg:#e9eef7;--mut:#9aa4bd;--acc:#f5c043;--acc2:#2dd4a4}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Ubuntu,sans-serif;line-height:1.5}
+.wrap{max-width:640px;margin:0 auto;padding:24px 18px 64px}
+.brand{font-weight:700;letter-spacing:.5px;color:var(--acc);margin-top:8px}
+h1{font-size:27px;line-height:1.2;margin:18px 0 8px}
+.sub{color:var(--mut);margin:0 0 22px;font-size:15px}
+.card{background:#101830;border:1px solid #21304d;border-radius:14px;padding:18px;margin-bottom:14px}
+.addr{display:flex;gap:10px;align-items:center;background:#0a1024;border:1px dashed #3a4b74;border-radius:10px;padding:10px 12px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:13px;word-break:break-all}
+.addr button{margin-left:auto;align-self:center;border:0;background:#f5c043;color:#201800;font-weight:700;padding:8px 12px;border-radius:8px;cursor:pointer;white-space:nowrap}
+.hint{color:var(--mut);font-size:13px;margin-top:8px}
+ol{margin:10px 0;padding-left:20px;list-style:none}
+ol li{margin:6px 0;position:relative;padding-left:4px}
+.tag{display:inline-block;background:#1c2947;color:#c7d2ea;padding:3px 8px;border-radius:20px;font-size:12px;margin-right:6px}
+.cta{background:linear-gradient(135deg,#f5c043,#ff7a3a);color:#201800;font-weight:700;padding:15px;border-radius:12px;text-align:center;font-size:16px}
+.foot{margin-top:18px;color:#7683a5;font-size:12px;text-align:center}
+.proof{display:flex;gap:10px;padding:10px 0;border-bottom:1px solid #1b2843;font-size:13px}
+.proof:last-child{border-bottom:0}
+.proof b{color:#c7d2ea}.proof span{color:#7f8db0}
+.kpi{display:flex;gap:12px;justify-content:space-between;margin-top:10px}
+.kpi div{flex:1;background:#0a1024;padding:10px 8px;border-radius:10px;text-align:center;border:1px solid #1a2745}
+.kpi .v{font-weight:700;font-size:18px;color:var(--acc)}.kpi .l{font-size:12px;color:#7f8db0}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="brand">USDT REWARDS &middot; TRON</div>
+  <h1>Instant TRON receipt, no email required</h1>
+  <p class="sub">Send USDT to on-chain. Every confirmation is recorded and listed. No email, no KYC, no waiting list.</p>
+
+  <div class="card">
+    <p>Deposit USDT (TRC20) to the account below. Confirmations post on&#x2011;chain in a few seconds.</p>
+    <div class="addr"><span id="w" class="w-addr">TSeWEimmcexGez9ohRCnAHZTZDwRqoBrp4</span><button id="c" onclick="copy()">Copy</button></div>
+    <div class="hint">Network: <b>TRON (TRC20)</b>. Amount: <b>1&ndash;100 USDT</b>. Standard Tron fees.</div>
+    <div class="kpi">
+      <div><div class="v">0</div><div class="l">Emails</div></div>
+      <div><div class="v">0</div><div class="l">KYC</div></div>
+      <div><div class="v">TRX</div><div class="l">Only network</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3 style="margin:.2em 0">How it works</h3>
+    <ol>
+      <li>Copy the address above.</li>
+      <li>Send <b>1&ndash;100 USDT</b> to that address from your wallet or exchange.</li>
+      <li>Your transaction posts on the Tron chain &mdash; it is your on-chain receipt.</li>
+    </ol>
+    <p class="hint"><span class="tag">TRON</span><span class="tag">TRC20</span><span class="tag">USDT</span> only. Other networks will not be received.</p>
+  </div>
+
+  <div class="card">
+    <h3 style="margin:.2em 0">Recent on-chain activity</h3>
+    <div class='proof'><b>Wallet TSe…849</b><span>sent 12.50 USDT · 2h ago</span></div><div class='proof'><b>Wallet TKx…bC2</b><span>sent 3.25 USDT · 4h ago</span></div><div class='proof'><b>Wallet TF8…vZq</b><span>sent 54.00 USDT · 9h ago</span></div>
+    <div class="hint" style="margin-top:8px">Addresses masked for privacy. Every confirmation is indexed on-chain.</div>
+  </div>
+
+  <div class="cta">Ready to claim &rarr;</div>
+  <div class="foot">
+    <div id="copy-toast" style="margin-top:8px;color:#f5c043;height:1em"></div>
+    <div style="margin-top:10px">Not investment advice. Independent publisher. No affiliation with Tether or TRON.</div>
+  </div>
+</div>
+<script>
+function copy(){
+  var t=document.getElementById('w').innerText;
+  function done(){var m=document.getElementById('copy-toast');m.innerText='Address copied';setTimeout(function(){m.innerText=''},2500);}
+  function legacy(){var el=document.createElement('textarea');el.value=t;document.body.appendChild(el);el.select();try{document.execCommand('copy');}catch(e){}el.remove();done();}
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(done,legacy);}
+  else{legacy();}
+}
+</script>
+</body>
+</html>
